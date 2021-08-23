@@ -1,0 +1,76 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "CTPH_DBContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "DataContext",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "CTPH_CoreData",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Elementos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Elementos_Listas_Valores]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Muestras]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Muestras_Valores]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Perfil_Elementos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Perfiles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PuntosDeMedida]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SituacionAmbiente]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SituacionAmbiente_Elementos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipos_PuntosDeMedida]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipos_Valores]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-OIE3RV3\\LENOVOSQL.CTPH_DB",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

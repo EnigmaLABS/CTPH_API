@@ -36,6 +36,8 @@ namespace CTPH_CoreServices
             services.AddScoped<ITipoValor, TipoValor>();
             services.AddScoped<IElementoAction, ElementoAction>();
             services.AddScoped<ISituacionAmbiente, SituacionAmbiente>();
+            services.AddScoped<IPerfil_Action, Perfil_Action>();
+            services.AddScoped<IPerfil, Perfil>();
 
             services.AddSwaggerGen();
 

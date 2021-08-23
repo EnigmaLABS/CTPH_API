@@ -1,7 +1,8 @@
-﻿using CTPH_CoreBusiness.BusinessObjects;
-using CTPH_CoreBusiness.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using CTPH_CoreBusiness.BusinessObjects;
+using CTPH_CoreBusiness.Common;
 
 namespace CTPH_CoreBusiness.ActionInterface
 {

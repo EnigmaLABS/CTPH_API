@@ -9,23 +9,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CTPH_CoreData.Models
 {
-    public partial class SituacionAmbiente
+    public partial class Elementos_Listas_Valores
     {
-        public SituacionAmbiente()
+        public Elementos_Listas_Valores()
         {
-            Muestras = new HashSet<Muestras>();
             SituacionAmbiente_Elementos = new HashSet<SituacionAmbiente_Elementos>();
         }
 
         [Key]
-        public long idSituacionAmbiente { get; set; }
-        [Required]
-        [StringLength(255)]
-        public string Observaciones { get; set; }
+        public int idListaValores { get; set; }
+        public int? idElemento { get; set; }
+        [StringLength(55)]
+        public string NombreListaValor { get; set; }
 
-        [InverseProperty("idSituacionAmbienteNavigation")]
-        public virtual ICollection<Muestras> Muestras { get; set; }
-        [InverseProperty("idSituacionAmbienteNavigation")]
+        [ForeignKey(nameof(idElemento))]
+        [InverseProperty(nameof(Elementos.Elementos_Listas_Valores))]
+        public virtual Elementos idElementoNavigation { get; set; }
+        [InverseProperty("idListaValorNavigation")]
         public virtual ICollection<SituacionAmbiente_Elementos> SituacionAmbiente_Elementos { get; set; }
     }
 }

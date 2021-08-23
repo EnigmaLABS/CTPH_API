@@ -28,7 +28,7 @@ namespace CTPH_CoreBusiness.BusinessObjects
 
         public IEnumerable<PuntoMedida> Get()
         {
-            var res = _context.PuntosDeMedida.Include(tpm => tpm.IdTipoPuntoDeMedidaNavigation);
+            var res = _context.PuntosDeMedida.Include(tpm => tpm.idTipoPuntoDeMedidaNavigation);
 
             List<PuntoMedida> list = new List<PuntoMedida>();
 
@@ -36,14 +36,14 @@ namespace CTPH_CoreBusiness.BusinessObjects
             {
                 list.Add(new PuntoMedida()
                 {
-                    idPuntoMedida = item.IdPuntoDeMedida,
+                    idPuntoMedida = item.idPuntoDeMedida,
                     Descripcion = item.Descripcion,
                     Observaciones = item.Observaciones,
 
                     TipoPuntoMedida = new TiposPuntoMedida()
                     {
-                        idTipoPuntoMedida = item.IdTipoPuntoDeMedidaNavigation.IdTipoPuntoDeMedida,
-                        Descripcion = item.IdTipoPuntoDeMedidaNavigation.Descripcion
+                        idTipoPuntoMedida = item.idTipoPuntoDeMedidaNavigation.idTipoPuntoDeMedida,
+                        Descripcion = item.idTipoPuntoDeMedidaNavigation.Descripcion
                     }
                 });
             }

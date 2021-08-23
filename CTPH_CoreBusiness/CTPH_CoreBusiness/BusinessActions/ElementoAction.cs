@@ -20,7 +20,7 @@ namespace CTPH_CoreBusiness.BusinessActions
 
         public IEnumerable<Elemento> Get()
         {
-            var res = _context.Elementos.Include(tv => tv.IdTipoValorNavigation);
+            var res = _context.Elementos.Include(tv => tv.idTipoValorNavigation);
 
             List<Elemento> list = new List<Elemento>();
 
@@ -28,13 +28,13 @@ namespace CTPH_CoreBusiness.BusinessActions
             {
                 list.Add(new Elemento()
                 {
-                    idElemento = item.IdElemento,
-                    Descripcion = item.Elemento1,
+                    idElemento = item.idElemento,
+                    Descripcion = item.Elemento,
 
                     TipoValor = new TipoValor()
                     {
-                        idTipoValor = item.IdTipoValorNavigation.IdTipoValor,
-                        Descripcion = item.IdTipoValorNavigation.TipoValor
+                        idTipoValor = item.idTipoValorNavigation.idTipoValor,
+                        Descripcion = item.idTipoValorNavigation.TipoValor
                     }
                 });
             }
@@ -44,7 +44,7 @@ namespace CTPH_CoreBusiness.BusinessActions
 
         public IEnumerable<ListaValores> GetListaValores(int id)
         {
-            var res = _context.ElementosListasValores.Include(el => el.IdElementoNavigation).Where(e => e.IdElemento == id);
+            var res = _context.Elementos_Listas_Valores.Include(el => el.idElementoNavigation).Where(e => e.idElemento == id);
 
             List<ListaValores> list = new List<ListaValores>();
 
@@ -52,13 +52,13 @@ namespace CTPH_CoreBusiness.BusinessActions
             {
                 list.Add(new ListaValores()
                 {
-                    idListaValor = item.IdListaValores,
+                    idListaValor = item.idListaValores,
                     NombreListaValor = item.NombreListaValor,
 
                     Elemento = new Elemento()
                     {
-                        idElemento = item.IdElementoNavigation.IdElemento,
-                        Descripcion = item.IdElementoNavigation.Elemento1
+                        idElemento = item.idElementoNavigation.idElemento,
+                        Descripcion = item.idElementoNavigation.Elemento
                     }
                 });
             }

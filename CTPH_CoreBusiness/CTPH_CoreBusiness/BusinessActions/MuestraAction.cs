@@ -19,7 +19,7 @@ namespace CTPH_CoreBusiness.BusinessActions
 
         public IEnumerable<BusinessObjects.Muestra> Get(DateTime dtInicio, DateTime dtFin)
         {
-            var res = _context.Muestras.Where(m => m.FhMuestra >= dtInicio && m.FhMuestra <= dtFin);
+            var res = _context.Muestras.Where(m => m.fhMuestra >= dtInicio && m.fhMuestra <= dtFin);
 
             List<BusinessObjects.Muestra> list = new List<BusinessObjects.Muestra>();
 
@@ -27,7 +27,7 @@ namespace CTPH_CoreBusiness.BusinessActions
             {
                 list.Add(new BusinessObjects.Muestra()
                 {
-                    Id = item.IdMuestra,
+                    Id = item.idMuestra,
                     Observaciones = item.Observaciones
                 });
             }
@@ -41,9 +41,9 @@ namespace CTPH_CoreBusiness.BusinessActions
 
             try
             {
-                Muestra newmuestra = new Muestra()
+                Muestras newmuestra = new Muestras()
                 {
-                    FhMuestra = DateTime.Now,
+                    fhMuestra = DateTime.Now,
                     Observaciones = muestra.Observaciones,
                 };
 
@@ -51,23 +51,23 @@ namespace CTPH_CoreBusiness.BusinessActions
                 {
                     foreach (var valores in muestra.MuestrasValores)
                     {
-                        newmuestra.MuestrasValores.Add(new MuestrasValore()
+                        newmuestra.Muestras_Valores.Add(new Muestras_Valores()
                         {
                             Temperatura = valores.Temperatura,
                             Humedad = valores.Humedad,
 
-                            IdPuntoDeMedidaNavigation = _context.PuntosDeMedida.FirstOrDefault(pm => pm.IdPuntoDeMedida == valores.PuntoMedida.idPuntoMedida)
+                            idPuntoDeMedidaNavigation = _context.PuntosDeMedida.FirstOrDefault(pm => pm.idPuntoDeMedida == valores.PuntoMedida.idPuntoMedida)
                         }); ;
                     }
                 }
 
                 if (muestra.SituacionAmbiente != null && muestra.SituacionAmbiente.Elementos != null)
                 {
-                    newmuestra.IdSituacionAmbienteNavigation = new SituacionAmbiente()
+                    newmuestra.idSituacionAmbienteNavigation = new SituacionAmbiente()
                     {
                         Observaciones = muestra.SituacionAmbiente.Observaciones
                     };
-                    newmuestra.IdSituacionAmbienteNavigation.SituacionAmbienteElementos = new List<SituacionAmbienteElemento>();
+                    newmuestra.idSituacionAmbienteNavigation.SituacionAmbiente_Elementos = new List<SituacionAmbiente_Elementos>();
                 }
 
                 _context.Muestras.Add(newmuestra);
@@ -77,12 +77,12 @@ namespace CTPH_CoreBusiness.BusinessActions
                 {
                     foreach (var elem in muestra.SituacionAmbiente.Elementos)
                     {
-                        _context.SituacionAmbienteElementos.Add(new SituacionAmbienteElemento()
+                        _context.SituacionAmbiente_Elementos.Add(new SituacionAmbiente_Elementos()
                         {
-                            IdSituacionAmbiente = (long)newmuestra.IdSituacionAmbiente,
-                            IdElemento = elem.Elemento.idElemento,
+                            idSituacionAmbiente = (long)newmuestra.idSituacionAmbiente,
+                            idElemento = elem.Elemento.idElemento,
                             Valor = elem.Valor,
-                            IdListaValor = elem.idListaValor
+                            idListaValor = elem.idListaValor
                         });
                     }
 

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 using CTPH_CoreData.DataContext;
@@ -20,17 +18,20 @@ namespace CTPH_CoreServices.Controllers
         private IElemento _elementos;
         private IPuntoMedida _puntosmedida;
         private Muestra _Muestra;
+        private IPerfil _perfil;
 
         public MuestrasController(CTPH_DBContext context, 
                                   IElemento elementos,
                                   IMuestraAction muestraaction,
-                                  IPuntoMedida puntosmedida)
+                                  IPuntoMedida puntosmedida,
+                                  IPerfil perfil)
         {
             _context = context;
 
             _elementos = elementos;
             _puntosmedida = puntosmedida;
             _Muestra = new Muestra(muestraaction);
+            _perfil = perfil;
         }
 
         // GET: api/<MuestrasController>
@@ -66,6 +67,13 @@ namespace CTPH_CoreServices.Controllers
         public IEnumerable<IPuntoMedidaInfo> GetPuntosDeMedida()
         {
             var result = _puntosmedida.Get();
+            return result;
+        }
+
+        [HttpGet("Muestras/GetPerfiles")]
+        public IEnumerable<IPerfil> GetPerfiles()
+        {
+            var result = _perfil.GetPerfiles();
             return result;
         }
 
