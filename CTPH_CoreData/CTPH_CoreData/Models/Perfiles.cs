@@ -11,9 +11,17 @@ namespace CTPH_CoreData.Models
 {
     public partial class Perfiles
     {
+        public Perfiles()
+        {
+            Perfil_Elementos = new HashSet<Perfil_Elementos>();
+        }
+
         [Key]
         public int idPerfil { get; set; }
         [StringLength(55)]
         public string Perfil { get; set; }
+
+        [InverseProperty("idPerfilNavigation")]
+        public virtual ICollection<Perfil_Elementos> Perfil_Elementos { get; set; }
     }
 }

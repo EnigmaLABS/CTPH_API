@@ -8,6 +8,8 @@ namespace CTPH_CoreBusiness.BusinessInterface
     {
         List<Elemento> Elementos { get; set; }
         int idPerfil { get; set; }
-        IEnumerable<Perfil> GetPerfiles();
+        string Descripcion { get; set; }
+        List<Perfil> GetPerfiles();
+        List<Elemento> GetElementos(int idPerfil);
     }
 }

@@ -77,6 +77,13 @@ namespace CTPH_CoreServices.Controllers
             return result;
         }
 
+        [HttpGet("Muestras/GetElementos_Perfil")]
+        public IEnumerable<IElemento> GetElementos_Perfil(int idPerfil)
+        {
+            var result = _perfil.GetElementos(idPerfil);
+            return result;
+        }
+
         // POST api/<MuestrasController>
         [HttpPost]
         public ResultDTO Post([FromBody] Muestra muestra)

@@ -14,6 +14,7 @@ namespace CTPH_CoreData.Models
         public Elementos()
         {
             Elementos_Listas_Valores = new HashSet<Elementos_Listas_Valores>();
+            Perfil_Elementos = new HashSet<Perfil_Elementos>();
             SituacionAmbiente_Elementos = new HashSet<SituacionAmbiente_Elementos>();
         }
 
@@ -29,6 +30,8 @@ namespace CTPH_CoreData.Models
         public virtual Tipos_Valores idTipoValorNavigation { get; set; }
         [InverseProperty("idElementoNavigation")]
         public virtual ICollection<Elementos_Listas_Valores> Elementos_Listas_Valores { get; set; }
+        [InverseProperty("idElementoNavigation")]
+        public virtual ICollection<Perfil_Elementos> Perfil_Elementos { get; set; }
         [InverseProperty("idElementoNavigation")]
         public virtual ICollection<SituacionAmbiente_Elementos> SituacionAmbiente_Elementos { get; set; }
     }

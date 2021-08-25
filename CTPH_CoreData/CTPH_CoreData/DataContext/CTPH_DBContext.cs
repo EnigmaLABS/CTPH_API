@@ -90,6 +90,20 @@ namespace CTPH_CoreData.DataContext
             modelBuilder.Entity<Perfil_Elementos>(entity =>
             {
                 entity.HasKey(e => new { e.idPerfil, e.idElemento });
+
+                entity.Property(e => e.Activo).HasDefaultValueSql("((1))");
+
+                entity.HasOne(d => d.idElementoNavigation)
+                    .WithMany(p => p.Perfil_Elementos)
+                    .HasForeignKey(d => d.idElemento)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Perfil_Elementos_Elementos");
+
+                entity.HasOne(d => d.idPerfilNavigation)
+                    .WithMany(p => p.Perfil_Elementos)
+                    .HasForeignKey(d => d.idPerfil)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Perfil_Elementos_Perfiles");
             });
 
             modelBuilder.Entity<Perfiles>(entity =>

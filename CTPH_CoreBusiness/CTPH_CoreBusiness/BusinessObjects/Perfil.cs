@@ -21,9 +21,15 @@ namespace CTPH_CoreBusiness.BusinessObjects
         public List<Elemento> Elementos { get; set; }
 
         //-->> Métodos
-        public IEnumerable<Perfil> GetPerfiles()
+        public List<Perfil> GetPerfiles()
         {
             var result = _perfilAction.GetPerfiles();
+            return result;
+        }
+
+        public List<Elemento> GetElementos(int idPerfil)
+        {
+            var result = _perfilAction.GetElementos(idPerfil);
             return result;
         }
     }

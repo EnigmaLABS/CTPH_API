@@ -6,5 +6,7 @@ namespace CTPH_CoreBusiness.ActionInterface
     public interface IPerfil_Action
     {
         List<Perfil> GetPerfiles();
+
+        List<Elemento> GetElementos(int idPerfil);
     }
 }

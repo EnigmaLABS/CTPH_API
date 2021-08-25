@@ -16,5 +16,12 @@ namespace CTPH_CoreData.Models
         [Key]
         public int idElemento { get; set; }
         public bool? Activo { get; set; }
+
+        [ForeignKey(nameof(idElemento))]
+        [InverseProperty(nameof(Elementos.Perfil_Elementos))]
+        public virtual Elementos idElementoNavigation { get; set; }
+        [ForeignKey(nameof(idPerfil))]
+        [InverseProperty(nameof(Perfiles.Perfil_Elementos))]
+        public virtual Perfiles idPerfilNavigation { get; set; }
     }
 }
